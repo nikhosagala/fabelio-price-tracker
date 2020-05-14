@@ -11,6 +11,7 @@ class Product(BaseModelMixin):
 
     class Meta:
         db_table = "products"
+        ordering = ["-created"]
 
 
 class ProductPrice(BaseModelMixin):

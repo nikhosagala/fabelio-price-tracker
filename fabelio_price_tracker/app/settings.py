@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "behave_django",
     "price_tracker",
 ]
 
@@ -114,3 +115,28 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = "/static/"
+
+DEFAULT_RENDERER_CLASSES = ("rest_framework.renderers.JSONRenderer",)
+
+if DEBUG:
+    DEFAULT_RENDERER_CLASSES = DEFAULT_RENDERER_CLASSES + (
+        "rest_framework.renderers.BrowsableAPIRenderer",
+    )
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
+    "DEFAULT_FILTER_BACKENDS": [
+        "rest_framework.filters.SearchFilter",
+        "rest_framework.filters.OrderingFilter",
+    ],
+    "DEFAULT_RENDERER_CLASSES": DEFAULT_RENDERER_CLASSES,
+    "COERCE_DECIMAL_TO_STRING": False,
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.BasicAuthentication",
+    ),
+    "TEST_REQUEST_DEFAULT_FORMAT": "json",
+    "URL_FIELD_NAME": "href",
+    "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.AcceptHeaderVersioning",
+    # "DEFAULT_PAGINATION_CLASS": "cocopcore.utils.helpers.LinkHeaderPagination",
+    "PAGE_SIZE": 25,
+}

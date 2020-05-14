@@ -47,6 +47,34 @@ html5lib = ["html5lib"]
 lxml = ["lxml"]
 
 [[package]]
+category = "main"
+description = "behave is behaviour-driven development, Python style"
+name = "behave"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+version = "1.2.6"
+
+[package.dependencies]
+parse = ">=1.8.2"
+parse-type = ">=0.4.2"
+six = ">=1.11"
+
+[package.extras]
+develop = ["coverage", "pytest (>=3.0)", "pytest-cov", "tox", "invoke (>=0.21.0)", "path.py (>=8.1.2)", "pycmd", "pathlib", "modernize (>=0.5)", "pylint"]
+docs = ["sphinx (>=1.6)", "sphinx-bootstrap-theme (>=0.6)"]
+
+[[package]]
+category = "main"
+description = "Behave BDD integration for Django"
+name = "behave-django"
+optional = false
+python-versions = "*"
+version = "1.3.0"
+
+[package.dependencies]
+behave = "*"
+
+[[package]]
 category = "dev"
 description = "The uncompromising code formatter."
 name = "black"
@@ -246,6 +274,30 @@ python-versions = "*"
 version = "1.3.5"
 
 [[package]]
+category = "main"
+description = "parse() is the opposite of format()"
+name = "parse"
+optional = false
+python-versions = "*"
+version = "1.15.0"
+
+[[package]]
+category = "main"
+description = "Simplifies to build parse types based on the parse module"
+name = "parse-type"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*"
+version = "0.5.2"
+
+[package.dependencies]
+parse = ">=1.8.4"
+six = ">=1.11"
+
+[package.extras]
+develop = ["coverage (>=4.4)", "pytest (>=3.2)", "pytest-cov", "tox (>=2.8)"]
+docs = ["sphinx (>=1.2)"]
+
+[[package]]
 category = "dev"
 description = "Utility library for gitignore style pattern matching of file paths."
 name = "pathspec"
@@ -352,7 +404,7 @@ security = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)"]
 socks = ["PySocks (>=1.5.6,<1.5.7 || >1.5.7)", "win-inet-pton"]
 
 [[package]]
-category = "dev"
+category = "main"
 description = "Python 2 and 3 compatibility utilities"
 name = "six"
 optional = false
@@ -444,7 +496,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "2eddce170334c9f18aa85ee813044095e8ea4f534bbd0a6e774629873f39a19b"
+content-hash = "aa4907844b954f7ebfc3d6c5ab2e1789bd2ce01f079a0bde9b6ff56f0a0da828"
 python-versions = "^3.6.8"
 
 [metadata.files]
@@ -464,6 +516,14 @@ beautifulsoup4 = [
     {file = "beautifulsoup4-4.9.0-py2-none-any.whl", hash = "sha256:a4bbe77fd30670455c5296242967a123ec28c37e9702a8a81bd2f20a4baf0368"},
     {file = "beautifulsoup4-4.9.0-py3-none-any.whl", hash = "sha256:d4e96ac9b0c3a6d3f0caae2e4124e6055c5dcafde8e2f831ff194c104f0775a0"},
     {file = "beautifulsoup4-4.9.0.tar.gz", hash = "sha256:594ca51a10d2b3443cbac41214e12dbb2a1cd57e1a7344659849e2e20ba6a8d8"},
+]
+behave = [
+    {file = "behave-1.2.6-py2.py3-none-any.whl", hash = "sha256:ebda1a6c9e5bfe95c5f9f0a2794e01c7098b3dde86c10a95d8621c5907ff6f1c"},
+    {file = "behave-1.2.6.tar.gz", hash = "sha256:b9662327aa53294c1351b0a9c369093ccec1d21026f050c3bd9b3e5cccf81a86"},
+]
+behave-django = [
+    {file = "behave-django-1.3.0.tar.gz", hash = "sha256:fdabff707486daa3a0d0e601a4d9b0a45c39a31e614bf5d53a8dc54fe75abb50"},
+    {file = "behave_django-1.3.0-py3-none-any.whl", hash = "sha256:b0a994f6ca329ba9692f6f207048c4c33179d671f9aa526e882d43785d2e2e3d"},
 ]
 black = [
     {file = "black-19.10b0-py36-none-any.whl", hash = "sha256:1b30e59be925fafc1ee4565e5e08abef6b03fe455102883820fe5ee2e4734e0b"},
@@ -530,6 +590,13 @@ mccabe = [
 ]
 nodeenv = [
     {file = "nodeenv-1.3.5-py2.py3-none-any.whl", hash = "sha256:5b2438f2e42af54ca968dd1b374d14a1194848955187b0e5e4be1f73813a5212"},
+]
+parse = [
+    {file = "parse-1.15.0.tar.gz", hash = "sha256:a6d4e2c2f1fbde6717d28084a191a052950f758c0cbd83805357e6575c2b95c0"},
+]
+parse-type = [
+    {file = "parse_type-0.5.2-py2.py3-none-any.whl", hash = "sha256:089a471b06327103865dfec2dd844230c3c658a4a1b5b4c8b6c16c8f77577f9e"},
+    {file = "parse_type-0.5.2.tar.gz", hash = "sha256:7f690b18d35048c15438d6d0571f9045cffbec5907e0b1ccf006f889e3a38c0b"},
 ]
 pathspec = [
     {file = "pathspec-0.8.0-py2.py3-none-any.whl", hash = "sha256:7d91249d21749788d07a2d0f94147accd8f845507400749ea19c1ec9054a12b0"},
