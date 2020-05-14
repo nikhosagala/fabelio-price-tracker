@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  database:
+    image: postgres:11-alpine
+    container_name: fabelio_db
+    environment:
+      - POSTGRES_USER=fabelio
+      - POSTGRES_DB=fabelio
+      - POSTGRES_PASSWORD=f4b3li0
+    ports:
+      - 5432:5432
+  redis:
+    image: redis:latest
+    container_name: fabelio_redis
+    ports:
+      - "6379:6379"
