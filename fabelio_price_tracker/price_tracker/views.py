@@ -15,6 +15,7 @@ class ProductViewSet(ModelViewSet):
 class ProductListView(ListView):
     model = Product
     template_name = "price_tracker/product_list.html"
+    queryset = Product.objects.filter(name__isnull=False)
 
 
 class ProductAdd(FormView):

@@ -2,9 +2,25 @@
 
 {% block content %}
     <h2>Products</h2>
-    <ul>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">URL</th>
+        </tr>
+        </thead>
+        <tbody>
         {% for product in object_list %}
-            <li>{{ product.product_url }}</li>
+            {% if product.name %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.product_url }}</td>
+            </tr>
+            {% endif %}
         {% endfor %}
-    </ul>
+        </tbody>
+    </table>
+
 {% endblock %}

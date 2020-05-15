@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "behave_django",
+    "crispy_forms",
     "price_tracker",
 ]
 
@@ -116,6 +117,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = "/static/"
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, os.pardir, "static"),)
 
 DEFAULT_RENDERER_CLASSES = ("rest_framework.renderers.JSONRenderer",)
 
