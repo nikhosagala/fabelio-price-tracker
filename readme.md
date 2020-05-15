@@ -28,6 +28,12 @@ Written in Django 3.0 with postgresql.
       $ pip install -r requirements.txt
     ```
 
+* migrate database
+
+    ```shell script
+      $ invoke migrate // used pyinvoke command
+    ```
+
 * running in local
 
     ```shell script
