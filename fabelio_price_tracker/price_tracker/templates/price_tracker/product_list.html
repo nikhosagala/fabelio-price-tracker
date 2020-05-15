@@ -8,16 +8,18 @@
             <th scope="col">#</th>
             <th scope="col">Product Name</th>
             <th scope="col">URL</th>
+            <th scope="col">Detail</th>
         </tr>
         </thead>
         <tbody>
         {% for product in object_list %}
             {% if product.name %}
-            <tr>
-                <td>{{ forloop.counter }}</td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.product_url }}</td>
-            </tr>
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.product_url }}</td>
+                    <td><a href="{% url 'product-detail' pk=product.id %}">detail</a></td>
+                </tr>
             {% endif %}
         {% endfor %}
         </tbody>
