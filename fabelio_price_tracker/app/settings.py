@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from datetime import timedelta
 
 from decouple import config
 
@@ -139,4 +140,23 @@ REST_FRAMEWORK = {
     "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.AcceptHeaderVersioning",
     # "DEFAULT_PAGINATION_CLASS": "cocopcore.utils.helpers.LinkHeaderPagination",
     "PAGE_SIZE": 25,
+}
+
+# celery configuration
+CELERY_BEAT_TIME = config("CELERY_BEAT_TIME", default=360)
+CELERY_BEAT_TRACKER_TIME = config("CELERY_BEAT_TRACKER_TIME", default=10)
+
+CELERY_BROKER_URL = config("CELERY_BROKER_URL", default="redis://localhost:6379")
+CELERY_RESULT_BACKEND = config(
+    "CELERY_RESULT_BACKEND", default="redis://localhost:6379"
+)
+CELERY_ACCEPT_CONTENT = ["application/json"]
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_TASK_SERIALIZER = "json"
+
+CELERY_BEAT_SCHEDULE = {
+    "process-products": {
+        "task": "price_tracker.tasks.process_product_url",
+        "schedule": timedelta(seconds=30),
+    }
 }

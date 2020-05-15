@@ -5,3 +5,13 @@ Feature: Price tracking feature
     Given API path to request /products/
     When I request to the API
     Then I got success response
+
+  Scenario: Add new product to track
+    Given a set of url and status code
+      | product_url                                            | path       | status_code |
+      | https://fabelio.com/ip/set-ruang-kerja-limm-palma.html | /products/ | 201         |
+      | https://fabelio.com/ip/set-meja-kerja-anto-eiffel.html | /products/ | 201         |
+      | https://fabelio.com/ip/set-ruang-kerja-limm-palma.html | /products/ | 400         |
+      | https://www.tokopedia.com/tp-linkindonesia/tl-mr3420   | /products/ | 400         |
+    When I request to track all products
+    Then I got response equal to the table
