@@ -39,3 +39,5 @@ Written in Django 3.0 with postgresql.
     ```shell script
       $ python fabelio_price_tracker/manage.py runserver
     ```
+
+* open [localhost:8000](http://localhost:8000) in your browser
