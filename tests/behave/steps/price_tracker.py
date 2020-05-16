@@ -2,18 +2,16 @@ import http
 import json
 
 from behave import given, then, when
-from rest_framework.test import APIClient
 
 
-@given("API path to request {path}")
+@given("Path to request {path}")
 def step_impl(context, path):
     context.path = path
 
 
-@when("I request to the API")
+@when("I get request to the path")
 def step_impl(context):
-    client = APIClient()
-    context.resp = client.get(context.path)
+    context.resp = context.test.client.get(context.path)
 
 
 @then("I got success response")
@@ -57,3 +55,14 @@ def step_impl(context):
         status_code = data.get("status_code")
         resp_status_code = data.get("resp").status_code
         context.test.assertEqual(status_code, resp_status_code)
+
+
+@when("I post all product to view")
+def step_impl(context):
+    datum = context.datum
+    for data in datum:
+        resp = context.test.client.post(
+            data.get("path"), data=dict(product_url=data.get("product_url")),
+        )
+        data.update(resp=resp)
+    context.datum = datum

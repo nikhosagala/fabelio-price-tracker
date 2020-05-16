@@ -1,4 +1,5 @@
 {% load static %}
+{% load tz %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
 </head>
 <body>
+{% timezone "Asia/Jakarta" %}
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-8">
@@ -18,5 +20,6 @@
         </div>
     </div>
 </div>
+{% endtimezone %}
 </body>
 </html>

@@ -5,7 +5,6 @@ from rest_framework.viewsets import ModelViewSet
 from price_tracker.forms import ProductForm
 from price_tracker.models import Product
 from price_tracker.serializers import ProductSerializer
-from price_tracker.tasks import process_product_url
 
 
 class ProductViewSet(ModelViewSet):
