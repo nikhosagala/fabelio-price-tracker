@@ -5,6 +5,7 @@ from rest_framework.viewsets import ModelViewSet
 from price_tracker.forms import ProductForm
 from price_tracker.models import Product
 from price_tracker.serializers import ProductSerializer
+from price_tracker.tasks import process_product_url
 
 
 class ProductViewSet(ModelViewSet):
@@ -25,6 +26,7 @@ class ProductAdd(FormView):
 
     def form_valid(self, form):
         form.save()
+        process_product_url.delay()
         return super(ProductAdd, self).form_valid(form)
 
 

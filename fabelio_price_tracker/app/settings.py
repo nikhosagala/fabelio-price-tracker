@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.humanize",
     "behave_django",
     "crispy_forms",
     "price_tracker",
@@ -141,13 +142,12 @@ REST_FRAMEWORK = {
     "TEST_REQUEST_DEFAULT_FORMAT": "json",
     "URL_FIELD_NAME": "href",
     "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.AcceptHeaderVersioning",
-    # "DEFAULT_PAGINATION_CLASS": "cocopcore.utils.helpers.LinkHeaderPagination",
     "PAGE_SIZE": 25,
 }
 
 # celery configuration
-CELERY_BEAT_TIME = config("CELERY_BEAT_TIME", default=360)
-CELERY_BEAT_TRACKER_TIME = config("CELERY_BEAT_TRACKER_TIME", default=10)
+CELERY_BEAT_TIME = config("CELERY_BEAT_TIME", default=30)
+CELERY_EXPIRED_TIME = config("CELERY_BEAT_TRACKER_TIME", default=10)
 
 CELERY_BROKER_URL = config("CELERY_BROKER_URL", default="redis://localhost:6379")
 CELERY_RESULT_BACKEND = config(
@@ -158,8 +158,8 @@ CELERY_RESULT_SERIALIZER = "json"
 CELERY_TASK_SERIALIZER = "json"
 
 CELERY_BEAT_SCHEDULE = {
-    "process-products": {
-        "task": "price_tracker.tasks.process_product_url",
-        "schedule": timedelta(seconds=30),
-    }
+    "get-new-price": {
+        "task": "price_tracker.tasks.get_new_price",
+        "schedule": timedelta(minutes=CELERY_BEAT_TIME),
+    },
 }

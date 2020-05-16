@@ -1,5 +1,28 @@
 {% extends 'base.html' %}
 
+{% load humanize %}
+
 {% block content %}
-    {{ product.name }}
+    <h3>{{ product.name }}</h3>
+    <img src="{{ product.image_url }}" class="img-fluid" alt="product image">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for price in product.product_prices.all %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ price.created | date:"d-m-Y, h:i" }}</td>
+                <td>Rp. {{ price.unit_sale_price | intcomma }}</td>
+            </tr>
+        {% empty %}
+            <td>Sorry, no price history for this product yet.</td>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

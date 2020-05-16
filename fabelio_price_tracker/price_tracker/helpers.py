@@ -1,20 +1,16 @@
 from collections import namedtuple
-from typing import Optional
+from typing import NamedTuple, Optional
 
 import requests
 from bs4 import BeautifulSoup
+from pydantic import BaseModel
 
 
-class Product(
-    namedtuple("Product", "name unit_price unit_sale_price url product_image_url")
-):
-    __slots__ = ()
-
-    def __new__(cls, *args, **kwargs):
-        for key in tuple(kwargs):
-            if key not in cls._fields:
-                del kwargs[key]
-        return super().__new__(cls, *args, **kwargs)
+class FabelioProduct(BaseModel):
+    name: str
+    unit_price: float
+    unit_sale_price: float
+    product_image_url: str
 
 
 def find_product_id(url: str) -> Optional[int]:
@@ -24,8 +20,8 @@ def find_product_id(url: str) -> Optional[int]:
     return product_id.get("value")
 
 
-def find_product_info_by_id(product_id: int) -> Product:
+def find_product_info_by_id(product_id: int) -> FabelioProduct:
     base_url = "https://fabelio.com/insider/data/product/id"
     resp = requests.get(f"{base_url}/{product_id}")
     product = resp.json().get("product")
-    return Product(**product)
+    return FabelioProduct(**product)
