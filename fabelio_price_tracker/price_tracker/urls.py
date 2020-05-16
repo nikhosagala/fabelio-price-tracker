@@ -2,12 +2,8 @@ from django.conf.urls import url
 from django.urls import include, path
 from rest_framework import routers
 
-from price_tracker.views import (
-    ProductAdd,
-    ProductDetail,
-    ProductListView,
-    ProductViewSet,
-)
+from price_tracker.views import (ProductAdd, ProductDetail, ProductListView,
+                                 ProductViewSet)
 
 router = routers.SimpleRouter()
 router.register("products", ProductViewSet, basename="api-product")
