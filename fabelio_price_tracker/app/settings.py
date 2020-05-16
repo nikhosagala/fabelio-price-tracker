@@ -121,6 +121,8 @@ STATIC_URL = "/static/"
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, os.pardir, "static"),)
 
+STATIC_ROOT = os.path.join(BASE_DIR, os.pardir, "staticfiles")
+
 DEFAULT_RENDERER_CLASSES = ("rest_framework.renderers.JSONRenderer",)
 
 if DEBUG:
