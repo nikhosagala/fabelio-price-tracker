@@ -154,10 +154,8 @@ REST_FRAMEWORK = {
 CELERY_BEAT_TIME = config("CELERY_BEAT_TIME", default=30)
 CELERY_EXPIRED_TIME = config("CELERY_BEAT_TRACKER_TIME", default=10)
 
-CELERY_BROKER_URL = config("CELERY_BROKER_URL", default="redis://localhost:6379")
-CELERY_RESULT_BACKEND = config(
-    "CELERY_RESULT_BACKEND", default="redis://localhost:6379"
-)
+CELERY_BROKER_URL = config("REDIS_URL", default="redis://localhost:6379")
+CELERY_RESULT_BACKEND = config("REDIS_URL", default="redis://localhost:6379")
 CELERY_ACCEPT_CONTENT = ["application/json"]
 CELERY_RESULT_SERIALIZER = "json"
 CELERY_TASK_SERIALIZER = "json"
