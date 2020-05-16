@@ -16,7 +16,7 @@ class ProductViewSet(ModelViewSet):
 class ProductListView(ListView):
     model = Product
     template_name = "price_tracker/product_list.html"
-    queryset = Product.objects.filter(name__isnull=False)
+    queryset = Product.objects.filter(is_active=True)
 
 
 class ProductAdd(FormView):
@@ -26,7 +26,6 @@ class ProductAdd(FormView):
 
     def form_valid(self, form):
         form.save()
-        process_product_url.delay()
         return super(ProductAdd, self).form_valid(form)
 
 

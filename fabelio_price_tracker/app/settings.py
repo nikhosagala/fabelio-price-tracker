@@ -163,6 +163,10 @@ CELERY_RESULT_SERIALIZER = "json"
 CELERY_TASK_SERIALIZER = "json"
 
 CELERY_BEAT_SCHEDULE = {
+    "process-products": {
+        "task": "price_tracker.tasks.process_product_url",
+        "schedule": timedelta(seconds=10),
+    },
     "get-new-price": {
         "task": "price_tracker.tasks.get_new_price",
         "schedule": timedelta(minutes=CELERY_BEAT_TIME),
