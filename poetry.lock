@@ -216,7 +216,7 @@ description = "A high-level Python Web framework that encourages rapid developme
 name = "django"
 optional = false
 python-versions = ">=3.6"
-version = "3.0.6"
+version = "3.0.7"
 
 [package.dependencies]
 asgiref = ">=3.2,<4.0"
@@ -684,7 +684,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "8e895a113fabd533f50b06db875d69cd87a620de3172ff6e120df0db068b486e"
+content-hash = "731c017b622267f8109a024f8f91897bc164c0d3dbd46057c6db909d4d90f07f"
 python-versions = "^3.6.8"
 
 [metadata.files]
@@ -753,8 +753,8 @@ distlib = [
     {file = "distlib-0.3.0.zip", hash = "sha256:2e166e231a26b36d6dfe35a48c4464346620f8645ed0ace01ee31822b288de21"},
 ]
 django = [
-    {file = "Django-3.0.6-py3-none-any.whl", hash = "sha256:051ba55d42daa3eeda3944a8e4df2bc96d4c62f94316dea217248a22563c3621"},
-    {file = "Django-3.0.6.tar.gz", hash = "sha256:9aaa6a09678e1b8f0d98a948c56482eac3e3dd2ddbfb8de70a868135ef3b5e01"},
+    {file = "Django-3.0.7-py3-none-any.whl", hash = "sha256:e1630333248c9b3d4e38f02093a26f1e07b271ca896d73097457996e0fae12e8"},
+    {file = "Django-3.0.7.tar.gz", hash = "sha256:5052b34b34b3425233c682e0e11d658fd6efd587d11335a0203d827224ada8f2"},
 ]
 django-crispy-forms = [
     {file = "django-crispy-forms-1.9.0.tar.gz", hash = "sha256:67e73ac863d3159500029fbbcdcb788f287a3fd357becebc1a0b51f73896dce3"},
