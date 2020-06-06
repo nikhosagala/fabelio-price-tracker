@@ -7,7 +7,7 @@ license = "Apache-2.0"
 
 [tool.poetry.dependencies]
 python = "^3.6.8"
-django = "^3.0.6"
+django = "^3.0.7"
 beautifulsoup4 = "^4.9.0"
 requests = "^2.23.0"
 djangorestframework = "^3.11.0"
